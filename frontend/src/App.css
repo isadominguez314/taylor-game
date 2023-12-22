@@ -1,0 +1,142 @@
+
+/* .App {
+  text-align: center;
+  background-color: #e6dcd4;
+  height: 1000px;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+  color: 	#796b60;
+}
+
+.hints-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.one-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-section button{
+  background: transparent;
+  border:2px solid #796b60;
+  border-radius: 7px;
+  color:#796b60;
+  font-weight:bold;
+}
+
+.circle-icon {
+  height: 15px;
+  width: 15px;
+  color:#796b60;
+}
+
+#prev-lyric {
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+#target-lyric {
+  margin-top: 15px;
+} 
+
+.start-screen, .App {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #e6dcd4;
+  height: 1000px;
+}
+
+.unclicked-button {
+  box-shadow: 0px 3px 0px 0px #796b60;
+	background-color:transparent;
+	border-radius:21px;
+	border:2px solid #796b60;
+	display:inline-block;
+	cursor:pointer;
+	color:#796b60;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 24px;
+}
+
+.clicked-button {
+	background-color:#796b60;
+	border-radius:21px;
+	border:2px solid #796b60;
+	display:inline-block;
+	color:#e6dcd4;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 24px;
+}
+
+.indiv-inputs, .check-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height:50px;
+  align-items: center;
+}
+
+
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  border-width: 10px;
+}
+
+.inputs h5 {
+  font-size: 30px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+input {
+  background: transparent;
+  border-color: transparent;
+  border-bottom-color: #796b60;
+  border-width: 1px;
+  height: 20px;
+  width: 250px;
+  font-size: 20px;
+  color: 	#796b60;
+}
+
+input:focus {
+  outline:none;
+  border-width: 3px;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background-color: #4174d9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
