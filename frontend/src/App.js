@@ -21,16 +21,13 @@ function App() {
   const [songReveal, setSongReveal] = useState(false);
   const [lyricReveal, setLyricReveal] = useState(false);
   const [score, setScore] = useState(0);
-  const [resetTimer, setResetTimer] = useState(false);
   const [songGuesses, setSongGuesses] = useState(3);
   const [lyricGuesses, setLyricGuesses] = useState(3);
   const [songPoints, setSongPoints] = useState(10);
   const [lyricPoints, setLyricPoints] = useState(10);
-  const [startScreen, setStartScreen] = useState(true);
   const [numRounds, setNumRounds] = useState(0);
   const [curRound, setCurRound] = useState(1);
   const [pageNumber, setPageNumber] = useState(0);
-  const [inProgress, setInProgress] = useState(false);
   const [showInstruct, setShowInstruct] = useState(false);
 
   async function pullFromBackend(){
@@ -42,14 +39,6 @@ function App() {
   function startGame() {
     setPageNumber(1);
     pullFromBackend();
-    // if (!inProgress) {
-    //   pullFromBackend();
-    // }
-    // setInProgress(true);
-    // setCurRound(1);
-    // setScore(0);
-    // resetVals();
-    // pullFromBackend();
   }
 
   function resetVals() {
@@ -67,17 +56,6 @@ function App() {
   }
 
   function nextSong() {
-    // setAlbumHint(false);
-    // setLyricHint(false);
-    // setCorrect('');
-    // setSongCorrect(false);
-    // setLyricCorrect(false);
-    // setLyricReveal(false);
-    // setSongReveal(false);
-    // setSongGuesses(3);
-    // setLyricGuesses(3);
-    // setSongPoints(10);
-    // setLyricPoints(10);
     resetVals();
     if (curRound === numRounds) {
       endGame();
@@ -114,7 +92,6 @@ function App() {
 
   function endGame() {
     setPageNumber(2);
-    setInProgress(false);
   }
 
   function setAlbum(){
@@ -214,7 +191,6 @@ function App() {
 
   useEffect(() => {
     if ((lyricCorrect | lyricReveal) && (songCorrect | songReveal)) {
-      setResetTimer(true);
       setTimeout(nextSong, 2500);
     }
   }, [lyricCorrect, songCorrect, songReveal, lyricReveal, nextSong]);

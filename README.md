@@ -1,1 +1,2 @@
 # taylor-game
+To run this game on your local machine, navigate to the **backend** directory and in a terminal, run the command **node server.js** in order to run the backend of the application. Then, navigate to the **frontend** directory in your terminal and run the command **npm start** which will open the React application on http://localhost:3000. 
