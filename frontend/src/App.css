@@ -5,6 +5,18 @@
   height: 1000px;
 } */
 
+.game-header {
+  font-family:Courier;
+  font-weight: 900;
+  font-size: 45px;
+}
+
+#correct-label {
+  font-family:Courier;
+  font-weight: 900;
+  font-size: 30px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: 	#796b60;
 }
@@ -36,6 +48,17 @@ h1, h2, h3, h4, h5, h6 {
   color:#796b60;
 }
 
+.question-mark {
+  height: 35px;
+  width: 35px;
+  background: transparent;
+}
+
+#hide-instructions, #show-instructions {
+  background: transparent;
+  border: transparent;
+}
+
 #prev-lyric {
   margin-top: 20px;
   margin-bottom: 0px;
@@ -45,14 +68,20 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 15px;
 } 
 
-.start-screen, .App {
-  padding: 50px;
+.start-screen, .App, .end-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  justify-content: center;
   background-color: #e6dcd4;
-  height: 1000px;
+  height: 100vh;
+  width: 100%;
+  /* padding: 0px 5px; */
+}
+
+.instructions {
+  width: 90%;
 }
 
 .unclicked-button {
@@ -66,6 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size:15px;
 	font-weight:bold;
 	padding:9px 24px;
+  margin-top: 15px;
 }
 
 .clicked-button {
@@ -77,6 +107,11 @@ h1, h2, h3, h4, h5, h6 {
 	font-size:15px;
 	font-weight:bold;
 	padding:9px 24px;
+  margin-top: 15px;
+}
+
+#b1, #b2, #b3, #b5 {
+  margin-bottom: 150px;
 }
 
 .indiv-inputs, .check-buttons {
@@ -87,7 +122,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
-
+#show-instructions, #hide-instructions {
+  margin-left: auto;
+  padding-right: 15%;
+}
 
 .input-section {
   display: flex;
