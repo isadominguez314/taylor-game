@@ -166,17 +166,6 @@ function App() {
     }
   }
 
-  async function checkAll() {
-    await checkSongInput();
-    await checkLyricInput();
-  }
-
-  // const checkAll = async () => {
-  //   const result = await checkSongInput();
-  //   checkLyricInput();
-  //   // do something else here after firstFunction completes
-  // }
-
   function revealLyric() {
     setLyricReveal(true);
     setLyricPoints(0);
@@ -195,17 +184,6 @@ function App() {
     }
   }, [lyricCorrect, songCorrect, songReveal, lyricReveal, nextSong]);
 
-  // const StartPage = () => {
-  //   return (
-  //     <div className = "start-screen">
-  //         <h1> TAYLOR SWIFT LYRIC GAME </h1>
-  //         <h4> INSTRUCTIONS: You will be presented with a random lyric from a Taylor Swift song. Your goal is to guess the name of the song and the following lyric. You have 3 guesses for each input and you can request album and previous lyric hints. The album hint will change the background of the game to the color matching the target lyric's album. The previous lyric hint will provide you with the lyric that preceded the target lyric. If you are stumped, you can reveal the song title, the next lyric, or you can skip the question. You can choose to play 5 rounds or you can choose free play and end the game when you are ready.</h4>
-  //         <h4> SCORING: Every question has 20 available points. 10 points is available for the correct song and 10 points is available for the next lyric. Each incorrect guess and hint used decreases the available points by 2. If you skip the question or reveal an answer, no points are earned.</h4>
-  //         {numRounds === 0 ? <div> <h4> How Many Rounds Would You Like To Play? </h4> <button class="unclicked-button" onClick={() => setNumRounds(5)} > 5 Rounds </button> <button class="unclicked-button" onClick={() => setNumRounds(-1)}> Free Play </button> </div>: <button class="unclicked-button" onClick={startGame}> Click Here To Play </button>}
-  //     </div>
-  //   );
-  // };
-
   return (
     <div id = "entire-game">
     {pageNumber === 0 ? 
@@ -218,10 +196,7 @@ function App() {
            {numRounds === 0 ? <div> <h4> How Many Rounds Would You Like To Play? </h4> <button id = "b1" class="unclicked-button" onClick={() => setNumRounds(5)} > 5 Rounds </button> <button id = "b2" class="unclicked-button" onClick={() => setNumRounds(-1)}> Free Play </button> </div>: <button id="b3" class="unclicked-button" onClick={startGame}> Click Here To Play </button>}
       </div> : pageNumber === 1 ?
       <div className = "App">
-        {/* {showInstruct ? <button id = "hide-instructions" onClick={() => setShowInstruct(false)}> Hide </button> : <button id = "show-instructions" onClick={() => setShowInstruct(true)}> Show </button>} */}
-            
         <div className="App" id = "my-game" >
-            
             {showInstruct ? <button className = "hide-instructions" id = "hide-instructions" onClick={() => setShowInstruct(false)}> <img src={clickedQuestion} className = "question-mark" alt=''/> </button> : <button id = "show-instructions" onClick={() => setShowInstruct(true)}> <img className = "question-mark" src={unclickedQuestion} alt=''/> </button>}
             <h1 className = "game-header" > TAYLOR SWIFT LYRIC GAME </h1>
              {showInstruct ? <div className = "instructions">
@@ -250,7 +225,6 @@ function App() {
                 : <img alt=''src={CircleIcon} className = 'circle-icon'/>}</div></div>}
               </div>
               <div className = "check-buttons">
-                {/* <button onClick = {checkAll}> Check All </button> */}
                 <button onClick = {clickNext}> Skip Question </button>
                 <button onClick = {() => setPageNumber(2)}> End Game </button>
               </div>
@@ -277,64 +251,6 @@ function App() {
       }
     </div>
   );
-
-  // return (
-  //   <div>
-  //     {startScreen ?
-  //       <div className = "start-screen">
-  //         <h1> TAYLOR SWIFT LYRIC GAME </h1>
-  //         <h4> INSTRUCTIONS: You will be presented with a random lyric from a Taylor Swift song. Your goal is to guess the name of the song and the following lyric. You have 3 guesses for each input and you can request album and previous lyric hints. The album hint will change the background of the game to the color matching the target lyric's album. The previous lyric hint will provide you with the lyric that preceded the target lyric. If you are stumped, you can reveal the song title, the next lyric, or you can skip the question. You can choose to play 5 rounds or you can choose free play and end the game when you are ready.</h4>
-  //         <h4> SCORING: Every question has 20 available points. 10 points is available for the correct song and 10 points is available for the next lyric. Each incorrect guess and hint used decreases the available points by 2. If you skip the question or reveal an answer, no points are earned.</h4>
-  //         {numRounds === 0 ? <div> <h4> How Many Rounds Would You Like To Play? </h4> <button class="unclicked-button" onClick={() => setNumRounds(5)} > 5 Rounds </button> <button class="unclicked-button" onClick={() => setNumRounds(-1)}> Free Play </button> </div>: <button class="unclicked-button" onClick={startGame}> Click Here To Play </button>}
-  //       </div> : 
-  //       <div> 
-  //         <div className="App" id = "my-game">
-  //           <h1 className = "words"> TAYLOR SWIFT LYRIC GAME </h1>
-  //           <div className = "hints-buttons">
-  //             {albumHint ? <button className = "clicked-button"> Show Album </button> : <button className = "unclicked-button" onClick={setAlbum}> Show Album</button>}
-  //             {lyricHint ? <button className = "clicked-button"> Show Previous Lyric </button> : <button className = "unclicked-button" onClick={setPrevLyric}> Show Previous Lyric </button>}          
-  //           </div>
-  //           <h2 id = "prev-lyric" className = "words"> {lyricHint? '"' + song['Previous Lyric'] + '"...' : <p></p>}</h2>
-  //           <h1 id = "target-lyric" className = "words"> "{song.Lyric}" </h1>
-  //           <div className = "input-section">
-  //             <div className = "indiv-inputs">
-  //             <h3> Song Title: </h3>
-  //             {songCorrect | songReveal ? <h3> "{song['Song']}" </h3> : <div className = "one-line"> <input type="text" onChange={getSongInput}></input> <button onClick = {checkSongInput}> Check </button> <button onClick = {revealSong}> Reveal </button> 
-  //             <div> {songGuesses === 3 ? <div> <img alt=''src={CircleIcon} className = 'circle-icon'/> <img alt=''src={CircleIcon} className = 'circle-icon'/> <img alt=''src={CircleIcon} className = 'circle-icon'/> </div> 
-  //             : songGuesses ===2 ? <div> <img alt=''src={CircleIcon} className = 'circle-icon'/> <img alt=''src={CircleIcon} className = 'circle-icon'/> </div> 
-  //             : <img alt=''src={CircleIcon} className = 'circle-icon'/>}</div></div>}
-  //           </div>
-  //           <div className = "indiv-inputs">
-  //             <h3> Next {song['Next Lyric']?.split(' ').length} Words: </h3>
-  //             {lyricCorrect | lyricReveal ? <h3> "{song['Next Lyric']}" </h3> : <div className = "one-line"> <input type="text" onChange={getLyricInput}></input> <button onClick = {checkLyricInput}> Check </button> <button onClick = {revealLyric}> Reveal </button> 
-  //             <div> {lyricGuesses === 3 ? <div> <img alt=''src={CircleIcon} className = 'circle-icon'/> <img alt=''src={CircleIcon} className = 'circle-icon'/> <img alt=''src={CircleIcon} className = 'circle-icon'/> </div> 
-  //               : lyricGuesses ===2 ? <div> <img alt=''src={CircleIcon} className = 'circle-icon'/> <img alt=''src={CircleIcon} className = 'circle-icon'/> </div> 
-  //               : <img alt=''src={CircleIcon} className = 'circle-icon'/>}</div></div>}
-  //             </div>
-  //             <div className = "check-buttons">
-  //               <button onClick = {checkAll}> Check All </button>
-  //               <button onClick = {clickNext}> Skip Question </button>
-  //             </div>
-  //           </div>
-  //         <h2 id="correct-label"> {correct} </h2>
-  //         <div className = "stats">
-            
-  //           {numRounds === -1 ? <h3>Round: {curRound} </h3>: <h3>Round: {curRound}/{numRounds} </h3>} 
-  //           <h3> Score: {score} </h3> 
-  //           <h3> Points Available This Round: {lyricPoints + songPoints} </h3>
-            
-  //         </div> 
-  //       </div> 
-  //     </div>}
-  //     <div> 
-  //       <h1> TAYLOR SWIFT LYRIC GAME </h1>
-  //       <h2> Insert Stats Here </h2>
-  //       <h4> Thank you for playing the game and click if you'd like to play again. </h4>
-  //     </div>
-  //   </div>
-    
-    
-  // );
 }
 
 export default App;
